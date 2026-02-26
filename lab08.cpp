@@ -46,30 +46,27 @@ int main() {
  * TODO: make them tail recursive :)
 *******************************************************************************/
 
-unsigned fact(unsigned n) {
+unsigned fact(unsigned n, unsigned ret=1) {
     // base cases (combined)
     if (n <= 1) {
-        return 1;
+        return ret;
     }
-
-    // recursive case
-    unsigned res = fact(n - 1);
-    return res * n;
+    return fact(n-1 , n*ret);
 }
 
-unsigned fib(unsigned n) {
+unsigned fib(unsigned n, unsigned n1, unsigned n2) {
     // base case 1
     if (n == 0) {
-        return 0;
+        return n1;
     }
 
     // base case 2
     else if (n == 1) {
         return 1;
     }
-
+    
     // recursive case
-    return fib(n - 1) + fib(n - 2);
+    return fib(n-1,n1,n1+n2);
 }
 
 unsigned mult(unsigned x, unsigned y) {
@@ -104,3 +101,4 @@ unsigned product(unsigned x, unsigned y) {
     unsigned p = product(x + 1, y);
     return p * x;
 }
+
