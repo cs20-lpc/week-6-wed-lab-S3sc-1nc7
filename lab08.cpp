@@ -54,52 +54,52 @@ unsigned fact(unsigned n, unsigned ret=1) {
     return fact(n-1 , n*ret);
 }
 
-unsigned fib(unsigned n, unsigned n1, unsigned n2) {
+unsigned fib(unsigned n) {
+    return fib(n,0,1);
+    }
+unsigned fib(unsigned n, unsigned n1, unsigned a) {
     // base case 1
     if (n == 0) {
         return n1;
     }
-
     // base case 2
     else if (n == 1) {
-        return 1;
+        return a;
     }
     
     // recursive case
-    return fib(n-1,n1,n1+n2);
+    return fib(n-1,a,a+n1);
 }
 
-unsigned mult(unsigned x, unsigned y) {
+unsigned mult(unsigned x, unsigned y, unsigned a = 0) {
     // base case
     if (y == 0) {
-        return 0;
+        return a;
     }
 
     // recursive case
-    unsigned res = mult(x, y - 1);
-    return res + x;
+    return mult(x, y - 1, a+x);
 }
 
-unsigned power(unsigned x, unsigned y) {
+unsigned power(unsigned x, unsigned y, unsigned a = 1) {
     // base case
     if (y == 0) {
-        return 1;
+        return a;
     }
 
     // recursive case
-    unsigned res = power(x, y - 1);
-    return res * x;
+    return power(x, y - 1, a * x);
 }
 
-unsigned product(unsigned x, unsigned y) {
+unsigned product(unsigned x, unsigned y, unsigned a = 1) {
     // base case
     if (x == y) {
-        return x;
+        return a;
     }
 
     // recursive case
-    unsigned p = product(x + 1, y);
-    return p * x;
+    return product(x + 1, y, a * x);
 }
+
 
 
