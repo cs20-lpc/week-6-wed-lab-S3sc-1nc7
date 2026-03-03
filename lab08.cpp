@@ -46,15 +46,18 @@ int main() {
  * TODO: make them tail recursive :)
 *******************************************************************************/
 
-unsigned fact(unsigned n, unsigned ret=1) {
+unsigned fact(unsigned n, unsigned ret) {
     // base cases (combined)
     if (n <= 1) {
         return ret;
     }
     return fact(n-1 , n*ret);
 }
+unsigned fact(unsigned n) {
+    return fact(n, 1);
+}
 
-unsigned fib(unsigned n, unsigned n1 = 0, unsigned a = 1) {
+unsigned fib(unsigned n, unsigned n1, unsigned a) {
     // base case 1
     if (n == 0) {
         return n1;
@@ -67,8 +70,11 @@ unsigned fib(unsigned n, unsigned n1 = 0, unsigned a = 1) {
     // recursive case
     return fib(n-1,a,a+n1);
 }
+unsigned fib(unsigned n) {
+    return fib(n,0,1);
+}
 
-unsigned mult(unsigned x, unsigned y, unsigned a = 0) {
+unsigned mult(unsigned x, unsigned y, unsigned a) {
     // base case
     if (y == 0) {
         return a;
@@ -77,8 +83,11 @@ unsigned mult(unsigned x, unsigned y, unsigned a = 0) {
     // recursive case
     return mult(x, y - 1, a+x);
 }
+unsigned mult(unsigned x, unsigned y) {
+    return mult(x, y, 0);
+}
 
-unsigned power(unsigned x, unsigned y, unsigned a = 1) {
+unsigned power(unsigned x, unsigned y, unsigned a) {
     // base case
     if (y == 0) {
         return a;
@@ -87,8 +96,11 @@ unsigned power(unsigned x, unsigned y, unsigned a = 1) {
     // recursive case
     return power(x, y - 1, a * x);
 }
+unsigned power(unsigned x, unsigned y) {
+    return power(x, y, 1);
+}
 
-unsigned product(unsigned x, unsigned y, unsigned a = 1) {
+unsigned product(unsigned x, unsigned y, unsigned a) {
     // base case
     if (x == y) {
         return a;
@@ -97,6 +109,10 @@ unsigned product(unsigned x, unsigned y, unsigned a = 1) {
     // recursive case
     return product(x + 1, y, a * x);
 }
+unsigned product(unsigned x, unsigned y) {
+    return product(x, y, 1);
+}
+
 
 
 
