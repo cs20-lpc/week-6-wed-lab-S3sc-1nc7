@@ -54,10 +54,7 @@ unsigned fact(unsigned n, unsigned ret=1) {
     return fact(n-1 , n*ret);
 }
 
-unsigned fib(unsigned n) {
-    return fib(n,0,1);
-    }
-unsigned fib(unsigned n, unsigned n1, unsigned a) {
+unsigned fib(unsigned n, unsigned n1 = 0, unsigned a = 1) {
     // base case 1
     if (n == 0) {
         return n1;
@@ -100,6 +97,7 @@ unsigned product(unsigned x, unsigned y, unsigned a = 1) {
     // recursive case
     return product(x + 1, y, a * x);
 }
+
 
 
 
